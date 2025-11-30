@@ -79,7 +79,7 @@ export default function Hero() {
             <div
               className="
                 relative
-                w-[450px] h-[800px] pt-20 pb-20
+                w-[350px] h-[800px] pt-20 pb-20
                 sm:pt-0 sm:pb-0
                 sm:w-[700px] sm:h-[700px]
                 md:w-[900px] md:h-[900px]
