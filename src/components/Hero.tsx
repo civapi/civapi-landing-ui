@@ -76,7 +76,8 @@ export default function Hero() {
           <div className="relative h-[400px] sm:h-[700px] flex items-center justify-center">
             
             {/* Responsive GLOBE SIZE */}
-            <div className="relative w-[450px] h-[800px] pt-20 lg:pt-0 pb-20 lg:pb-0 sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[900px] lg:w-[1000px] lg:h-[1000px] pointer-events-none bg-transparent">
+            <div className="relative w-[450px] h-[800px] pt-20 lg:pt-0 pb-20 lg:pb-0 sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[900px] lg:w-[1000px] lg:h-[1000px] pointer-events-none bg-transparent
+              flex justify-center items-center sm:justify-start sm:items-start">
               <Globe />
             </div>
 
