@@ -30,7 +30,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="product" className="py-32 relative">
+    <section id="product" className="py-16 lg:py-32 relative">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

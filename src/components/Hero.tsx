@@ -17,14 +17,15 @@ export default function Hero() {
                       opacity-30" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-0 lg:gap-16 items-center">
 
           {/* LEFT SIDE */}
-          <div className="space-y-8">
+          <div className="space-y-8 mb-6 lg:mb-0">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              className="mt-6 lg:mt-0"
             >
               <Badge className="bg-primary/20 text-primary border-primary/30 mb-6 px-4 py-2">
                 <Sparkles className="w-4 h-4 mr-2" />
@@ -57,25 +58,34 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button className="text-lg px-8 py-6">Get your API key <ArrowRight className="ml-2" /></Button>
-              <Button variant="outline" className="text-lg px-8 py-6">Explore docs</Button>
+              {/* "Get your API key" (primary) — largest on mobile */}
+              <Button className="text-base px-6 py-4 w-48 sm:text-lg sm:px-8 sm:py-6 sm:w-auto">
+                Get your API key <ArrowRight className="ml-2" />
+              </Button>
+              {/* "Explore docs" — bit smaller but still readable */}
+              <Button
+                variant="outline"
+                className="text-base px-5 py-3 w-40 sm:text-lg sm:px-8 sm:py-6 sm:w-auto"
+              >
+                Explore docs
+              </Button>
             </motion.div>
           </div>
 
           {/* RIGHT SIDE — GLOBE */}
-          <div className="relative h-[700px] flex items-center justify-center">
+          <div className="relative h-[400px] sm:h-[700px] flex items-center justify-center">
             
-            {/* FIXED GLOBE SIZE PREVENTS RESIZING BUG */}
-            <div className="relative w-[1000px] h-[1000px] pointer-events-none bg-transparent">
+            {/* Responsive GLOBE SIZE */}
+            <div className="relative w-[450px] h-[800px] pt-20 lg:pt-0 pb-20 lg:pb-0 sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[900px] lg:w-[1000px] lg:h-[1000px] pointer-events-none bg-transparent">
               <Globe />
             </div>
 
-            {/* FLOATING CARDS */}
+            {/* FLOATING CARDS - hide on small screens */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.5, duration: 0.8 }}
-              className="absolute top-20 -left-4 bg-card/80 backdrop-blur-xl 
+              className="hidden sm:block absolute top-20 -left-4 bg-card/80 backdrop-blur-xl 
                          border border-border/50 rounded-2xl p-4 shadow-2xl"
             >
               <p className="text-sm font-semibold text-primary">Real-time Data</p>
@@ -86,7 +96,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.7, duration: 0.8 }}
-              className="absolute bottom-20 -right-4 bg-card/80 backdrop-blur-xl 
+              className="hidden sm:block absolute bottom-20 -right-4 bg-card/80 backdrop-blur-xl 
                          border border-border/50 rounded-2xl p-4 shadow-2xl"
             >
               <p className="text-sm font-semibold text-secondary">99.9% Uptime</p>
