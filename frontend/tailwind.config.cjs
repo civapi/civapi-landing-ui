@@ -1,11 +1,7 @@
-import type { Config } from "tailwindcss";
-
-export default {
+/** @type {import('tailwindcss').Config} */
+const config = {
   darkMode: ["class"],
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -71,69 +67,43 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
         "fade-in": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(20px)"
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)"
-          }
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in-up": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(30px)"
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)"
-          }
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "scale-in": {
-          "0%": {
-            opacity: "0",
-            transform: "scale(0.9)"
-          },
-          "100%": {
-            opacity: "1",
-            transform: "scale(1)"
-          }
+          "0%": { opacity: "0", transform: "scale(0.9)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
         },
         "glow-pulse": {
           "0%, 100%": {
-            boxShadow: "0 0 20px hsl(188 94% 55% / 0.3)"
+            boxShadow: "0 0 20px hsl(188 94% 55% / 0.3)",
           },
           "50%": {
-            boxShadow: "0 0 40px hsl(188 94% 55% / 0.6)"
-          }
+            boxShadow: "0 0 40px hsl(188 94% 55% / 0.6)",
+          },
         },
-        "gradient": {
+        gradient: {
           "0%, 100%": {
             backgroundSize: "200% 200%",
-            backgroundPosition: "left center"
+            backgroundPosition: "left center",
           },
           "50%": {
             backgroundSize: "200% 200%",
-            backgroundPosition: "right center"
-          }
-        }
+            backgroundPosition: "right center",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -142,7 +112,7 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
-        "gradient": "gradient 8s linear infinite",
+        gradient: "gradient 8s linear infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -150,4 +120,6 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};
+
+module.exports = config;
