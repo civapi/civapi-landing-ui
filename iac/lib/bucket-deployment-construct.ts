@@ -22,7 +22,7 @@ export class BucketDeploymentConstruct extends Construct {
       sources: [Source.asset(path)],
       destinationBucket: this.frontendBucketConstruct.bucket,
       distribution: this.cloudFrontDistributionConstruct.distribution,
-      distributionPaths: ['/*', '/assets/*']
+      distributionPaths: ['/*']
     })
 
     const uiHostname = process.env.UI_HOSTNAME ?? ''
