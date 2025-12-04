@@ -46,6 +46,10 @@ jobs:
       - name: Install CDK Dependencies
         run: npm install
         working-directory: iac
+      
+      - name: Remove CDK cache
+        run: rm -rf cdk.out
+        working-directory: iac
 
       - name: Deploy CDK Stack
         run: npm run deploy:prod
