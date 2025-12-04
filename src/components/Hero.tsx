@@ -32,7 +32,7 @@ export default function Hero() {
                 className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/20 hover:text-primary mb-6 px-4 py-2"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
-                Trusted by 500+ NGOs worldwide
+                Trusted by 100+ NGOs worldwide
               </Badge>
             </motion.div>
 
