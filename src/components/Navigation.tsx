@@ -61,7 +61,7 @@ const Navigation = () => {
             className="flex items-center gap-3"
           >
             <ThemeToggle />
-            <Button asChild variant="ghost" className="text-sm hover:bg-primary/10">
+            <Button asChild variant="ghost" className="text-sm text-white hover:text-white hover:bg-primary/10">
               <a href="https://dashboard.civapi.com/" target="_blank" rel="noreferrer">
                 Sign in
               </a>
