@@ -27,7 +27,10 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mt-6 lg:mt-0"
             >
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-6 px-4 py-2">
+              <Badge
+                variant="outline"
+                className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/20 hover:text-primary mb-6 px-4 py-2"
+              >
                 <Sparkles className="w-4 h-4 mr-2" />
                 Trusted by 500+ NGOs worldwide
               </Badge>
@@ -59,15 +62,20 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               {/* "Get your API key" (primary) — largest on mobile */}
-              <Button className="text-base px-6 py-4 w-48 sm:text-lg sm:px-8 sm:py-6 sm:w-auto">
-                Get your API key <ArrowRight className="ml-2" />
+              <Button asChild className="text-base px-6 py-4 w-48 sm:text-lg sm:px-8 sm:py-6 sm:w-auto">
+                <a href="https://dashboard.civapi.com/" target="_blank" rel="noreferrer">
+                  Get your API key <ArrowRight className="ml-2" />
+                </a>
               </Button>
               {/* "Explore docs" — bit smaller but still readable */}
               <Button
+                asChild
                 variant="outline"
                 className="text-base px-5 py-3 w-40 sm:text-lg sm:px-8 sm:py-6 sm:w-auto"
               >
-                Explore docs
+                <a href="https://docs.civapi.com/" target="_blank" rel="noreferrer">
+                  Explore docs
+                </a>
               </Button>
             </motion.div>
           </div>

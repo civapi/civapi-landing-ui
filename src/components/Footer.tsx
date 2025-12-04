@@ -2,21 +2,16 @@ import { motion } from "framer-motion";
 
 const footerLinks = {
   Product: [
-    { label: "Dashboard", href: "#" },
-    { label: "Data Sources", href: "#" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "API Docs", href: "#" }
+    { label: "Dashboard", href: "https://dashboard.civapi.com/", external: true },
+    { label: "API Docs", href: "https://docs.civapi.com/", external: true }
   ],
   Resources: [
     { label: "FAQ", href: "#faq" },
-    { label: "Support", href: "#" },
-    { label: "Changelog", href: "#" },
-    { label: "Status", href: "#" }
+    { label: "Support", href: "mailto:info@civapi.com" }
   ],
   Legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Data Ethics", href: "#" }
+    { label: "Privacy Policy", href: "https://static.civapi.com/privacy-policy", external: true },
+    { label: "Terms of Service", href: "https://static.civapi.com/terms-of-use", external: true }
   ]
 };
 
@@ -49,13 +44,15 @@ const Footer = () => {
             >
               <h4 className="font-semibold mb-6 text-lg">{category}</h4>
               <ul className="space-y-4">
-                {links.map((link) => (
-                  <li key={link.label}>
+                {links.map(({ label, href, external }) => (
+                  <li key={label}>
                     <a 
-                      href={link.href}
+                      href={href}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noreferrer" : undefined}
                       className="text-muted-foreground hover:text-primary transition-colors inline-block hover:translate-x-1 duration-200"
                     >
-                      {link.label}
+                      {label}
                     </a>
                   </li>
                 ))}
@@ -71,9 +68,10 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="pt-10 border-t border-border/50"
         >
-          <p className="text-center text-muted-foreground">
-            © 2025 CivAPI. All rights reserved. Built with purpose for humanitarian organizations.
-          </p>
+          <div className="text-center text-muted-foreground space-y-1">
+            <p>© 2025 CivAPI. All rights reserved. Built with purpose for humanitarian organizations.</p>
+            <p>© Ceratonia Siliqua Group LLC 2025. All rights reserved. Built with {"<3"} for humanity.</p>
+          </div>
         </motion.div>
       </div>
     </footer>

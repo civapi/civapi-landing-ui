@@ -49,6 +49,17 @@ const plans = [
   }
 ];
 
+const formatApiCalls = (credits: string) => {
+  const numericCredits = Number(credits.replace(/,/g, ""));
+  if (Number.isNaN(numericCredits)) {
+    return null;
+  }
+
+  const formattedCredits = numericCredits.toLocaleString();
+  const totalCalls = (numericCredits * 1000).toLocaleString();
+  return `${formattedCredits} x 1,000 = ${totalCalls} API calls`;
+};
+
 const Pricing = () => {
   return (
     <section id="pricing" className="py-32 relative overflow-hidden">
@@ -143,6 +154,11 @@ const Pricing = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
+            const numericCredits = Number(plan.credits.replace(/,/g, ""));
+            const displayCredits = Number.isNaN(numericCredits)
+              ? plan.credits
+              : numericCredits.toLocaleString();
+            const apiCallBreakdown = formatApiCalls(plan.credits);
             return (
               <motion.div
                 key={index}
@@ -171,19 +187,25 @@ const Pricing = () => {
                   >
                     <Icon className="w-10 h-10 text-primary" />
                   </motion.div>
-                  <h3 className="text-4xl font-bold mb-2">{plan.credits}</h3>
+                  <h3 className="text-4xl font-bold mb-2">{displayCredits}</h3>
+                  {apiCallBreakdown && (
+                    <p className="text-sm text-muted-foreground mb-2">{apiCallBreakdown}</p>
+                  )}
                   <p className="text-sm text-primary font-semibold mb-2">{plan.name}</p>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                 </div>
                 
                 <Button 
+                  asChild
                   className={`w-full mb-8 text-base py-6 ${
                     plan.popular 
                       ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/30 hover:shadow-primary/50" 
                       : "bg-muted hover:bg-muted/80"
                   }`}
                 >
-                  Purchase Credits
+                  <a href="https://dashboard.civapi.com/" target="_blank" rel="noreferrer">
+                    Purchase Credits
+                  </a>
                 </Button>
                 
                 <ul className="space-y-4">
@@ -210,8 +232,10 @@ const Pricing = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="text-center mt-16"
         >
-          <Button variant="link" className="text-primary hover:text-primary/80 text-lg">
-            View credits in dashboard →
+          <Button asChild variant="link" className="text-primary hover:text-primary/80 text-lg">
+            <a href="https://dashboard.civapi.com/" target="_blank" rel="noreferrer">
+              View credits in dashboard →
+            </a>
           </Button>
         </motion.div>
       </div>
