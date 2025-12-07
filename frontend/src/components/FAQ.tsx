@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const faqs = [
   {
     question: "How do credits work?",
-    answer: "Each credit equals 1,000 standard API calls. Satellite images use credits based on image pricing. ACLED conflict data access is handled through a separate license agreement, not through credits."
+    answer: "Each credit equals 1,000 standard API calls. Satellite images use credits depending on image size and resolution. ACLED conflict data access is handled through a separate license agreement, not through credits."
   },
   {
     question: "What's included in the free tier?",

@@ -1,7 +1,7 @@
 // Globe.tsx
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture, Environment } from "@react-three/drei";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import * as THREE from "three";
 import { a, useSpring } from "@react-spring/three";
 
@@ -81,24 +81,13 @@ function Earth() {
     "https://unpkg.com/three-globe/example/img/earth-topology.png",
   ]);
 
-  const [hovered, setHovered] = useState(false);
-
-  const { scale } = useSpring({
-    scale: hovered ? 1.07 : 1,
-    config: { tension: 140, friction: 7 },
-  });
-
   useFrame(() => {
     if (mesh.current) mesh.current.rotation.y += 0.0016;
   });
 
+  // No hover logic or animation
   return (
-    <a.mesh
-      ref={mesh}
-      scale={scale}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-    >
+    <mesh ref={mesh} scale={1}>
       <sphereGeometry args={[1.6, 64, 64]} />
 
       <meshStandardMaterial
@@ -108,7 +97,7 @@ function Earth() {
         metalness={0.1}
         roughness={0.9}
       />
-    </a.mesh>
+    </mesh>
   );
 }
 

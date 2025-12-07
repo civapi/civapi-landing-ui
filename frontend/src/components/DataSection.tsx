@@ -18,8 +18,7 @@ const datasets = [
     icon: DollarSign,
     title: "Crisis Funding",
     description: "Humanitarian funding flows, aid allocation, and development finance tracking.",
-    color: "from-green-500 to-emerald-500",
-    highlight: true
+    color: "from-green-500 to-emerald-500"
   },
   {
     icon: Building,

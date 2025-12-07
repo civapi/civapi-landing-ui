@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 const footerLinks = {
   Product: [
     { label: "Dashboard", href: "https://dashboard.civapi.com/", external: true },
-    { label: "API Docs", href: "https://docs.civapi.com/", external: true }
+    { label: "API Docs", href: "https://docs.civapi.com/", external: true },
+    { label: "Blog", href: "https://blog.civapi.com/", external: true }
   ],
   Resources: [
     { label: "FAQ", href: "#faq" },
@@ -70,7 +71,7 @@ const Footer = () => {
         >
           <div className="text-center text-muted-foreground space-y-1">
             <p>© 2025 CivAPI. All rights reserved. Built with purpose for humanitarian organizations.</p>
-            <p>© Ceratonia Siliqua Group LLC 2025. All rights reserved. Built with {"<3"} for humanity.</p>
+            <p>© Ceratonia Siliqua Group LLC 2025. All rights reserved. Built with <span role="img" aria-label="love">♥️</span> for humanity.</p>
           </div>
         </motion.div>
       </div>

@@ -7,7 +7,8 @@ const navLinks = [
   { label: "Data", href: "#data" },
   { label: "Pricing", href: "#pricing" },
   { label: "Docs", href: "https://docs.civapi.com/", external: true },
-  { label: "FAQ", href: "#faq" }
+  { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "https://blog.civapi.com/", external: true }
 ];
 
 const Navigation = () => {

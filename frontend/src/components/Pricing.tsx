@@ -101,11 +101,23 @@ const Pricing = () => {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Check className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                  <span className="text-muted-foreground text-lg"><strong className="text-foreground">1 credit</strong> = 1,000 standard API calls</span>
+                  <span className="text-muted-foreground text-lg">
+                    <strong className="text-foreground">1 credit</strong>
+                    <span className="mx-2 text-primary/80">=</span>
+                    <span>
+                      <strong className="text-foreground">1,000</strong> API calls
+                    </span>
+                    <span className="mx-2 text-primary/40 hidden md:inline" aria-hidden="true">|</span>
+                    <span className="block md:inline mt-1 md:mt-0">
+                      <strong className="text-foreground">1 credit</strong>
+                      <span className="mx-2 text-primary/80">=</span>
+                      <strong className="text-foreground">1&nbsp;EUR</strong>
+                    </span>
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                  <span className="text-muted-foreground text-lg"><strong className="text-foreground">Satellite images</strong> use credits based on image price</span>
+                  <span className="text-muted-foreground text-lg"><strong className="text-foreground">Satellite images</strong> use credits depending on image size and resolution</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
@@ -138,92 +150,6 @@ const Pricing = () => {
             </div>
           </div>
         </motion.div>
-        
-        {/* Pricing Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mb-12"
-        >
-          <h3 className="text-3xl font-semibold mb-3">Top Up Credits As You Go</h3>
-          <p className="text-lg text-muted-foreground">Choose the credit package that fits your needs</p>
-        </motion.div>
-        
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, index) => {
-            const Icon = plan.icon;
-            const numericCredits = Number(plan.credits.replace(/,/g, ""));
-            const displayCredits = Number.isNaN(numericCredits)
-              ? plan.credits
-              : numericCredits.toLocaleString();
-            const apiCallBreakdown = formatApiCalls(plan.credits);
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
-                whileHover={{ y: -12, transition: { duration: 0.2 } }}
-                className={`relative rounded-3xl backdrop-blur-sm p-10 transition-all duration-300 ${
-                  plan.popular
-                    ? "border-2 border-primary bg-primary/5 shadow-2xl shadow-primary/30 md:scale-110"
-                    : "border border-border/50 bg-card/40 hover:border-primary/50"
-                }`}
-              >
-                {plan.popular && (
-                  <Badge className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 text-sm">
-                    Most Popular
-                  </Badge>
-                )}
-                
-                <div className="text-center mb-8">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                    className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 mb-6"
-                  >
-                    <Icon className="w-10 h-10 text-primary" />
-                  </motion.div>
-                  <h3 className="text-4xl font-bold mb-2">{displayCredits}</h3>
-                  {apiCallBreakdown && (
-                    <p className="text-sm text-muted-foreground mb-2">{apiCallBreakdown}</p>
-                  )}
-                  <p className="text-sm text-primary font-semibold mb-2">{plan.name}</p>
-                  <p className="text-sm text-muted-foreground">{plan.description}</p>
-                </div>
-                
-                <Button 
-                  asChild
-                  className={`w-full mb-8 text-base py-6 ${
-                    plan.popular 
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/30 hover:shadow-primary/50" 
-                      : "bg-muted hover:bg-muted/80"
-                  }`}
-                >
-                  <a href="https://dashboard.civapi.com/" target="_blank" rel="noreferrer">
-                    Purchase Credits
-                  </a>
-                </Button>
-                
-                <ul className="space-y-4">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                {plan.popular && (
-                  <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl -z-10 animate-glow-pulse" />
-                )}
-              </motion.div>
-            );
-          })}
-        </div>
         
         <motion.div
           initial={{ opacity: 0 }}
