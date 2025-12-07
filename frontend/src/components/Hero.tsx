@@ -92,10 +92,13 @@ export default function Hero() {
                 sm:w-[700px] sm:h-[700px]
                 md:w-[900px] md:h-[900px]
                 lg:w-[1000px] lg:h-[1000px]
-                pointer-events-none
                 bg-transparent
                 mx-auto
                 sm:mx-0
+                pointer-events-auto
+                cursor-grab
+                active:cursor-grabbing
+                select-none
               "
               style={{
                 left: 0, right: 0,

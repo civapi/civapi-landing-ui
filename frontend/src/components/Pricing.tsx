@@ -102,16 +102,10 @@ const Pricing = () => {
                 <li className="flex items-start gap-3">
                   <Check className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <span className="text-muted-foreground text-lg">
-                    <strong className="text-foreground">1 credit</strong>
-                    <span className="mx-2 text-primary/80">=</span>
-                    <span>
-                      <strong className="text-foreground">1,000</strong> API calls
-                    </span>
-                    <span className="mx-2 text-primary/40 hidden md:inline" aria-hidden="true">|</span>
                     <span className="block md:inline mt-1 md:mt-0">
-                      <strong className="text-foreground">1 credit</strong>
+                      <strong className="text-foreground">1 EUR</strong>
                       <span className="mx-2 text-primary/80">=</span>
-                      <strong className="text-foreground">1&nbsp;EUR</strong>
+                      <strong className="text-foreground">100,000 credits</strong>
                     </span>
                   </span>
                 </li>
