@@ -70,7 +70,7 @@ const Footer = () => {
           className="pt-10 border-t border-border/50"
         >
           <div className="text-center text-muted-foreground space-y-1">
-            <p>© 2025 CivAPI. All rights reserved. Built with purpose for humanitarian organizations.</p>
+            <p>© {new Date().getFullYear()} CivAPI. All rights reserved. Built with purpose for humanitarian organizations.</p>
             <p>© Ceratonia Siliqua Group LLC {new Date().getFullYear()}. All rights reserved. Built with <span role="img" aria-label="love">♥️</span> for humanity.</p>
           </div>
         </motion.div>
